@@ -19,6 +19,7 @@ node {
             sh 'gcc --version'
             //sh 'pwd'
             sh "gcc swap.c -o swap"
+            sh "gcc hello_world.c -o hello"
             //print "Hello ${name}"
         }
     }catch(e){
@@ -29,7 +30,8 @@ node {
     try{
         stage('Testing') {
             echo "Testing swap program"
-            sh "./swap ${params.FirstNumber} ${params.SecondNumber}" 
+            sh "./swap ${params.FirstNumber} ${params.SecondNumber}"
+            sh "./hello"
         }
      }catch(e){
             echo "Testing stage failed! "
