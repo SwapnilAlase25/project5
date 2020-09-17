@@ -1,4 +1,4 @@
-properties([parameters([string(defaultValue: '5', description: 'For the swap program, we need 2 numbers', name: 'FirstNumber', trim: false), string(defaultValue: '10', description: 'For the swap program, we need 2 numbers', name: 'SecondNumber', trim: false)]), pipelineTriggers([cron('H * * * *')])])
+properties([parameters([string(defaultValue: '5', description: 'For the swap program, we need 2 numbers', name: 'FirstNumber', trim: false), string(defaultValue: '10', description: 'For the swap program, we need 2 numbers', name: 'SecondNumber', trim: false)]), pipelineTriggers([cron('H/4 * * * *')])])
 def repo_branch = 'master'
 def repo_url = 'https://github.com/SwapnilAlase25/project5.git/'
 boolean startedByTimerFlag
