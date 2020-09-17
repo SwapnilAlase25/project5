@@ -32,7 +32,7 @@ startedByTimerFlag = call()
         stage('Compiling') {
             echo "compiling swap program"
             sh 'gcc --version'
-            if(startedByTimer == false){
+            if(startedByTimerFlag == false){
                 sh "gcc swap.c -o swap"
             }
             sh "gcc hello_world.c -o hello"
@@ -46,7 +46,7 @@ startedByTimerFlag = call()
     try{
         stage('Testing') {
             echo "Testing swap program"
-            if(startedByTimer == false){
+            if(startedByTimerFlag == false){
                 sh "./swap ${params.FirstNumber} ${params.SecondNumber}"
             }
             sh "./hello"
