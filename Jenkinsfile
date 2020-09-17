@@ -30,7 +30,7 @@ startedByTimerFlag = this.call()
     
     try{
         stage('Compiling') {
-            echo "compiling swap program"
+            echo "compiling programs"
             sh 'gcc --version'
             if(startedByTimerFlag == false){
                 sh "gcc swap.c -o swap"
@@ -45,7 +45,7 @@ startedByTimerFlag = this.call()
    
     try{
         stage('Testing') {
-            echo "Testing swap program"
+            echo "Testing programs"
             if(startedByTimerFlag == false){
                 sh "./swap ${params.FirstNumber} ${params.SecondNumber}"
             }
@@ -60,7 +60,8 @@ startedByTimerFlag = this.call()
         stage('Archiving') {
             echo "Archiving swap program output" 
             sh "./swap ${params.FirstNumber} ${params.SecondNumber} > log.txt" 
-            archiveArtifacts artifacts: 'log.txt', fingerprint: true
+             sh "./hello > log_hello.txt"
+            archiveArtifacts artifacts: 'log.txt,log_hello.txt', fingerprint: true
             }
      }catch(e){
         echo "Archiving stage failed! "
