@@ -58,9 +58,11 @@ startedByTimerFlag = this.call()
     
     try{
         stage('Archiving') {
-            echo "Archiving swap program output" 
+            echo "Archiving program output" 
+            if(startedByTimerFlag == false){
             sh "./swap ${params.FirstNumber} ${params.SecondNumber} > log.txt" 
-             sh "./hello > log_hello.txt"
+            }
+            sh "./hello > log_hello.txt"
             archiveArtifacts artifacts: 'log.txt,log_hello.txt', fingerprint: true
             }
      }catch(e){
