@@ -2,6 +2,8 @@ properties([parameters([string(defaultValue: '5', description: 'For the swap pro
 def repo_branch = 'master'
 def repo_url = 'https://github.com/SwapnilAlase25/project5.git/'
 
+boolean startedByTimer = call()
+
 node { 
 
     try{
@@ -17,8 +19,9 @@ node {
         stage('Compiling') {
             echo "compiling swap program"
             sh 'gcc --version'
-            //sh 'pwd'
+            if(startedByTimer == )
             sh "gcc swap.c -o swap"
+            
             sh "gcc hello_world.c -o hello"
             //print "Hello ${name}"
         }
