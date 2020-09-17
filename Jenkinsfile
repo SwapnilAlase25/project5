@@ -2,10 +2,11 @@ properties([parameters([string(defaultValue: '5', description: 'For the swap pro
 def repo_branch = 'master'
 def repo_url = 'https://github.com/SwapnilAlase25/project5.git/'
 
-boolean startedByTimer = call()
 
 node { 
-
+    
+boolean startedByTimer = call()
+    
     try{
     stage("Get project"){
         git branch: repo_branch, url: repo_url
