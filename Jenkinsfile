@@ -19,9 +19,9 @@ node {
         stage('Compiling') {
             echo "compiling swap program"
             sh 'gcc --version'
-            if(startedByTimer == )
-            sh "gcc swap.c -o swap"
-            
+            if(startedByTimer == false){
+                sh "gcc swap.c -o swap"
+            }
             sh "gcc hello_world.c -o hello"
             //print "Hello ${name}"
         }
@@ -33,7 +33,9 @@ node {
     try{
         stage('Testing') {
             echo "Testing swap program"
-            sh "./swap ${params.FirstNumber} ${params.SecondNumber}"
+            if(startedByTimer == false){
+                sh "./swap ${params.FirstNumber} ${params.SecondNumber}"
+            }
             sh "./hello"
         }
      }catch(e){
