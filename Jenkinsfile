@@ -17,7 +17,7 @@ def call() {
 
 node { 
     
-startedByTimerFlag = call()
+startedByTimerFlag = this.call()
     
     try{
     stage("Get project"){
